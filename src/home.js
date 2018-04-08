@@ -11,12 +11,17 @@ export default class Home extends React.Component {
 		}
 		this.handleUsername = this.handleUsername.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleEnter = this.handleEnter.bind(this)
+	}
+	handleEnter(e){
+		if(e.key==="Enter"){
+			this.handleSubmit()
+		}
 	}
 	handleUsername(e){
 		this.setState({username: e.target.value})
 	}
-	handleSubmit(e){
-		e.preventDefault()
+	handleSubmit(){
 		this.props.history.push("/"+this.state.username)
 	}
 	render() {
@@ -26,7 +31,7 @@ export default class Home extends React.Component {
 					<Row>
 						<Col s={6} className="offset-s3 card-panel">
 							<h5 className="center">Github API</h5>
-							<input className="col s8" type="text" name="username" placeholder="Enter username" value={this.state.username} onChange={this.handleUsername}/>
+							<input className="col s8" type="text" name="username" placeholder="Enter username" value={this.state.username} onChange={this.handleUsername} onKeyPress={this.handleEnter}/>
 							<input type="submit" className="btn col s3 right" onClick={this.handleSubmit}/>
 						</Col>
 					</Row>

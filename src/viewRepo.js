@@ -12,6 +12,7 @@ export default class Home extends React.Component {
 		this.handleUsername = this.handleUsername.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.updateData = this.updateData.bind(this)
+        this.handleEnter = this.handleEnter.bind(this)
     }
     updateData(){
         let username = this.state.username
@@ -25,11 +26,15 @@ export default class Home extends React.Component {
             })
         }
     }
+    handleEnter(e){
+		if(e.key==="Enter"){
+			this.handleSubmit()
+		}
+	}
 	handleUsername(e){
 		this.setState({username: e.target.value})
 	}
-	handleSubmit(e){
-		e.preventDefault()
+	handleSubmit(){
         this.props.history.push("/"+this.state.username)
         this.updateData()
     }
@@ -46,7 +51,7 @@ export default class Home extends React.Component {
                 <Row>
                     <Col s={12} className="search-bar">
                         <h5 className=" col s9">Github Open Source API</h5>
-                        <input className="col s2" type="text" name="username" placeholder="Change username" value={this.state.username} onChange={this.handleUsername}/>
+                        <input className="col s2" type="text" name="username" placeholder="Change username" value={this.state.username} onChange={this.handleUsername} onKeyPress={this.handleEnter}/>
                         <input type="submit" value="CHANGE" className="btn col s1 right" onClick={this.handleSubmit}/>
                     </Col>
                 </Row>
