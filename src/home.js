@@ -19,10 +19,17 @@ export default class Home extends React.Component {
 		}
 	}
 	handleUsername(e){
-		this.setState({username: e.target.value})
+		if(/^([A-Za-z0-9]+)$/.test(e.target.value) || e.target.value==""){
+			this.setState({username: e.target.value})
+		}
+		else{
+			alert("Enter valid username")
+		}
 	}
 	handleSubmit(){
-		this.props.history.push("/"+this.state.username)
+		if(this.state.username!=""){
+			this.props.history.push("/"+this.state.username)
+		}
 	}
 	render() {
 		return (
