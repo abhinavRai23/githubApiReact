@@ -2,8 +2,14 @@
 .padding-top-20{
     padding-top: 20px;
 }
+.padding-top-10{
+    padding-top: 10px !important;
+}
 .middle{
     margin-top: 20vh;
+}
+.padding-10{
+    padding: 10px;
 }
 .card-panel{
     padding: 15px !important;
@@ -26,10 +32,11 @@
 }
 .repos{
     .card-panel{
-        display: flex;
-        flex-wrap: wrap;
+        border: 1px solid #ddd;
+        h5{
+            margin: 0 0 10px 0;
+        }
         div{
-            min-width: 20%;
             span{
                 font-size: 13px;
                 text-transform: uppercase;
@@ -37,4 +44,23 @@
             }
         }
     }
+}
+.sort{
+    padding: 31px 10px !important;
+    border: 1px solid #ddd;
+    .btn{
+        &.active{
+            background-color: #76ff03 !important;
+        }
+    }
+}
+.filter{
+    input{
+        z-index: 10;
+    }
+    .s2{
+        padding-top: 25px;
+    }
+    padding: 10px !important;
+    border: 1px solid #ddd;
 }
